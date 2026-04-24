@@ -2,8 +2,6 @@
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
-const routeUrl = 'https://yandex.ru/maps/-/CLqfMNzL'
-
 const schedule = [
   { time: '17:00', title: 'Welcome' },
   { time: '17:30', title: 'Церемония' },
@@ -73,6 +71,8 @@ const getHeartPoint = (frames: HeartKeyframe[], progress01: number) => {
 onMounted(() => {
   if (!import.meta.client) return
   if (!sectionRef.value || !heartRef.value) return
+  const isMobile = useMediaQuery('(max-width: 485px)')
+  console.log(isMobile.value)
 
   const ctx = gsap.context(() => {
     const maxY = 1403
@@ -91,7 +91,7 @@ onMounted(() => {
         const sectionHeight = sectionRef.value!.offsetHeight
         const travelY = Math.max(0, sectionHeight - 40) // 96 ~= heart size + breathing room
         const yScaled = (y / maxY) * travelY
-        const xScaled = (x / maxAbsX) * 190 // keep lateral movement subtle in our layout
+        const xScaled = (x / maxAbsX) * (isMobile.value ? 170 : 190) // keep lateral movement subtle in our layout
 
         gsap.set(heartRef.value!, { x: xScaled, y: yScaled })
       },
@@ -110,10 +110,11 @@ onMounted(() => {
     class="bg-[#F5ECDE] text-[#3D2314]"
   >
     <Container
-      class="max-w-5xl relative mx-auto"
+      variant="wild"
+      class="relative mx-auto max-md:!p-0"
     >
       <div class="mt-10 flex flex-col gap-8">
-        <div class="rounded-lg relative">
+        <div class="rounded-lg relative max-md:px-4">
           <ul class="absolute inset-x-0 top-46 bottom-18 flex flex-col">
             <li
               v-for="(item, idx) in schedule"
@@ -128,20 +129,20 @@ onMounted(() => {
                 class="min-w-16"
                 variant="3"
               >
-                {{ item.time }}
-              </Heading>
-              <Heading
-                class="text-[#322D29]"
-                variant="4"
-              >
                 {{ item.title }}
               </Heading>
+              <Text
+                class="text-[#322D29]"
+                variant="lg"
+              >
+                {{ item.time }}
+              </Text>
             </li>
           </ul>
 
           <div
             ref="sectionRef"
-            class="relative h-[1800px]"
+            class="relative xs:h-[1800px]"
           >
             <div
               ref="heartRef"
@@ -156,38 +157,28 @@ onMounted(() => {
             </div>
             <Image
               src="https://static.tildacdn.com/tild3631-6338-4061-b436-333636386235/svg_1758649796645.svg"
-              class="size-full pt-8 pr-3"
+              class="size-full pt-4 pr-1.5 sm:pt-8 xs:pr-3"
             />
           </div>
         </div>
 
         <div>
-          <div class="text-center p-6">
+          <div class="text-center md:p-6">
             <Heading
-              variant="3"
-              class="font-serif font-normal"
+              variant="2"
             >
               Место проведения
             </Heading>
-            <Text class="mt-6 text-[#322D29]">
+            <Text class="text-[#322D29]">
               Видная Усадьба,<br>
               Старо-Нагорная ул., 20Б, Видное
             </Text>
           </div>
         </div>
-        <div class="flex items-center justify-center">
-          <Button
-            :to="routeUrl"
-            class="inline-flex items-center justify-center rounded-full bg-[#777B56] px-6 py-3 text-[#FF8562] ring-1 ring-[#5A5D45] hover:bg-[#6f734f] transition-colors"
-            target="_blank"
-            rel="noopener"
-          >
-            Построить маршрут
-          </Button>
-        </div>
         <Image
+          provider="none"
           class="mx-auto h-[50svh]"
-          src="https://optim.tildacdn.com/tild6534-3130-4236-b033-306238386461/-/cover/761x514/center/center/-/format/webp/Subtract.png.webp"
+          src="/mock/passage.jpg"
         />
       </div>
     </Container>

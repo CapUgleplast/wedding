@@ -20,7 +20,7 @@ watch(isOpen, (newVal) => {
     v-if="!isOff"
     class="
       min-h-svh overflow-hidden transition-all duration-1000 z-40
-      bg-[#787C57] text-[#FF8562]
+      bg-[#787C57] text-white
     "
     :class="{
       'opacity-0': isOut,
@@ -41,7 +41,7 @@ watch(isOpen, (newVal) => {
         >
         <Heading
           variant="1"
-          class="absolute top-[12svh] left-1/2 -translate-x-1/2 text-center font-serif font-normal tracking-wide"
+          class="absolute top-[12svh] left-1/2 -translate-x-1/2 text-center tracking-wide"
         >
           Приглашение<br>
           на свадьбу
@@ -60,16 +60,18 @@ watch(isOpen, (newVal) => {
 
     <Container
       variant="wild"
-      class="relative z-10 flex min-h-svh flex-col items-center justify-center py-16"
+      class="relative mx-auto z-10 flex min-h-svh flex-col items-center justify-center py-16"
     >
-      <Button
-        variant="secondary"
-        class="mt-10 rounded-full bg-[#777B56] text-[#FF8562] ring-1 ring-[#5A5D45] hover:bg-[#6f734f]"
+      <button
+        class="mt-10 size-40 cursor-pointer hover:brightness-90 transition-all"
         type="button"
         @click="isOpen = true"
       >
-        Далее
-      </Button>
+        <Image
+          class="size-full object-cover"
+          src="https://optim.tildacdn.com/tild3939-3163-4732-a135-303062326565/-/resize/351x/-/format/webp/hf_20260130_121201_e.png.webp"
+        />
+      </button>
     </Container>
   </section>
 </template>

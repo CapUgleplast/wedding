@@ -3,7 +3,7 @@ import type { VariantProps } from 'class-variance-authority'
 
 export { default as Heading } from './Heading.vue'
 
-export const headingVariants = cva('sm:whitespace-pre-line -tracking-[calc(1em*0.05)]', {
+export const headingVariants = cva('sm:whitespace-pre-line -tracking-[calc(1em*0.05)] font-heading', {
   variants: {
     variant: {
       ['1']: '3xl:text-[6.5rem] lg:text-[5rem] text-[2.625rem]',

@@ -9,7 +9,7 @@ export { default as PopoverTrigger } from './PopoverTrigger.vue'
 export const popoverVariants = cva('', {
   variants: {
     variant: {
-      default: 'bg-white text-secondary-foreground shadow-base px-1',
+      default: 'bg-white text-secondary-foreground shadow-base px-6 py-4 rounded-lg',
       none: '',
     },
   },
@@ -21,7 +21,7 @@ export const popoverVariants = cva('', {
 export const popoverTriggerVariants = cva('group flex items-center justify-center cursor-pointer leading-rem transition-colors', {
   variants: {
     variant: {
-      primary: `bg-primary text-primary-foreground rounded-sm px-3 py-1.5
+      primary: `bg-white text-secondary-foreground rounded-sm p-6 rounded-full
                   lg:hover:bg-accent lg:hover:text-accent-foreground
                   data-[state=open]:bg-accent data-[state=open]:text-accent-foreground`,
       none: '',

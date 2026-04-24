@@ -27,8 +27,8 @@ export const textVariants = cva('-tracking-[calc(1em*0.06)]', {
     },
   },
   defaultVariants: {
-    variant: 'base',
-    weight: 'normal',
+    variant: 'md',
+    weight: 'lighter',
     leading: 'teen',
   },
 })

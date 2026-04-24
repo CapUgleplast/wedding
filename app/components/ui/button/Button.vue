@@ -6,15 +6,15 @@ import { Primitive } from 'reka-ui'
 import { cn } from '@/lib/utils'
 import { buttonVariants } from '.'
 import { NuxtLink } from '#components'
-import type { HeadingVariants } from '~/components/ui/heading'
 import type { ColorsButton } from '~/types/colors'
+import type { TextVariants } from '~/components/ui/text'
 
 interface Props extends PrimitiveProps {
   variant?: ButtonVariants['variant']
   colors?: ColorsButton
   size?: ButtonVariants['size']
   class?: HTMLAttributes['class']
-  textVariant?: HeadingVariants['variant']
+  textVariant?: TextVariants['variant']
   to?: string
   target?: string
   replace?: boolean
@@ -22,7 +22,7 @@ interface Props extends PrimitiveProps {
 
 const props = withDefaults(defineProps<Props>(), {
   as: 'button',
-  textVariant: '7',
+  textVariant: 'base',
 })
 
 const getComponent = computed(() => {
@@ -34,7 +34,7 @@ const getComponent = computed(() => {
 </script>
 
 <template>
-  <Heading
+  <Text
     :variant="textVariant"
     leading="teen"
     as-child
@@ -53,16 +53,9 @@ const getComponent = computed(() => {
       }"
       :class="cn('group', buttonVariants({ variant, size }), props.class)"
     >
-      <slot name="before" />
-      <ButtonContentWrapper
-        data-slot="wrapper"
-        :disabled="variant === 'empty' || variant === 'link' || variant === 'link-reversed'"
-      >
-        <slot />
-      </ButtonContentWrapper>
-      <slot name="after" />
+      <slot />
     </Primitive>
-  </Heading>
+  </Text>
 </template>
 
 <style scoped>

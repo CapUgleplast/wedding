@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,300...300;1,300..300&display=swap');
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -5,10 +8,12 @@
 @source '../../../layers/**/*.{vue,js,ts}';
 
 @theme {
+  --breakpoint-xs: 485px;
   --breakpoint-desktop: 90rem;
   --breakpoint-3xl: 120rem;
   --breakpoint-4xl: 160rem;
 }
+
 
 @theme inline {
   --font-sans: var(--font-text);
@@ -66,32 +71,32 @@
 }
 
 :root {
-  --font-heading: "Norms", sans-serif;
-  --font-text: "Norms", sans-serif;
+  --font-heading: "Great Vibes", cursive;
+  --font-text: 'Montserrat',Arial,sans-serif;
 
-  --background: #e7f5ff;
-  --foreground: #213d4f;
+  --background: #F5ECDE;
+  --foreground: #3D2314;
 
   --card: #ffffff;
-  --card-foreground: #213d4f;
+  --card-foreground: #3D2314;
 
   --popover: #ffffff;
-  --popover-foreground: #213d4f;
+  --popover-foreground: #3D2314;
 
-  --primary: #213d4f;
-  --primary-foreground: #e7f5ff;
+  --primary: #3D2314;
+  --primary-foreground: #F5ECDE;
 
-  --secondary: #e7f5ff;
-  --secondary-foreground: #213d4f;
+  --secondary: #F5ECDE;
+  --secondary-foreground: #3D2314;
 
-  --muted: #536f81;
-  --muted-foreground: #e7f5ff;
+  --muted: #5A5D45;
+  --muted-foreground: #F5ECDE;
 
-  --accent: #bf1431;
-  --accent-foreground: #e7f5ff;
+  --accent: #5A5D45;
+  --accent-foreground: #F5ECDE;
 
   --destructive: #bf1431;
-  --destructive-foreground: #e7f5ff;
+  --destructive-foreground: #F5ECDE;
 
   --transparent: transparent;
 

@@ -1,15 +1,17 @@
 <template>
   <section class="bg-[#F5ECDE] text-[#3D2314] py-16 sm:py-20">
-    <Container class="max-w-3xl mx-auto">
+    <Container
+      variant="wild"
+      class="max-w-3xl mx-auto"
+    >
       <Heading
         variant="1"
-        class="text-center font-serif font-extralight"
+        class="text-center"
       >
         Дорогие гости!
       </Heading>
 
       <Text
-        variant="md"
         class="mt-6 text-center text-[#322D29] lg:max-w-2xl mx-auto"
       >
         Мы очень хотим сделать этот день особенным, поэтому приглашаем Вас разделить с нами торжество,
@@ -36,28 +38,30 @@
         <div class="border-t border-[#322D29]" />
         <div class="grid grid-cols-3 text-center">
           <div class="border-r border-[#322D29] py-5">
-            <div class="text-4xl font-serif">
+            <Text class="!text-6xl">
               11
-            </div>
-            <div class="text-xs">
+            </Text>
+            <Text variant="sm">
               августа
-            </div>
+            </Text>
           </div>
           <div class="border-r border-[#322D29] py-5">
-            <div class="text-4xl font-serif">
+            <Text class="!text-6xl">
               12
-            </div>
-            <div class="text-xs">
+            </Text>
+            <Text
+              variant="sm"
+            >
               августа
-            </div>
+            </Text>
           </div>
           <div class="py-5">
-            <div class="text-4xl font-serif">
+            <Text class="!text-6xl">
               13
-            </div>
-            <div class="text-xs">
+            </Text>
+            <Text variant="sm">
               августа
-            </div>
+            </Text>
           </div>
         </div>
       </div>

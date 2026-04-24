@@ -3,26 +3,27 @@ import Image from '../ui/image/Image.vue'
 </script>
 
 <template>
-  <section class="bg-[#F5ECDE] text-[#3D2314] pb-20 sm:pb-28">
+  <section class="text-white">
     <Container
       variant="wild"
-      class="text-center relative"
+      class="text-center relative mx-auto max-md:!p-0"
     >
       <Image
-        src="https://optim.tildacdn.com/tild3331-3833-4633-a335-323033353432/-/format/webp/113.png.webp"
+        provider="none"
+        src="/mock/main.jpg"
         alt="Александр и Дарья"
-        class="w-full bg-amber-400 sm:max-w-[50%] min-h-svh md:min-h-[60svh] mx-auto"
+        class="w-full object-cover min-h-svh md:min-h-[60svh] mx-auto"
       />
-      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 pb-10">
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 pb-10 w-full">
         <Heading
-          variant="3"
+          variant="2"
           class=""
           leading="none"
         >
           Александр &amp; Дарья
         </Heading>
         <Heading
-          variant="4"
+          variant="3"
           leading="none"
           class="mt-4"
         >

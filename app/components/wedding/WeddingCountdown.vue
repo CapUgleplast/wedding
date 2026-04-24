@@ -14,56 +14,56 @@ const pad2 = (n: number) => String(n).padStart(2, '0')
 </script>
 
 <template>
-  <section class="bg-[#F5ECDE] text-[#3D2314] py-16 sm:py-20">
+  <section class="text-white ">
     <Container
       variant="wild"
-      class="text-center mx-auto relative md:max-w-xl"
+      class="text-center mx-auto relative py-16 sm:py-20 h-[60svh]"
     >
-      <div class="absolute inset-x-0 z-2 flex flex-col items-center top-10">
+      <div class="absolute inset-x-0 z-2 flex flex-col items-center top-40">
         <Heading
-          variant="3"
+          variant="2"
         >
           До встречи через:
         </Heading>
 
-        <div class="w-1/2 mt-10 grid grid-cols-4 gap-3 sm:gap-6">
+        <div class="w-[90%] md:w-1/2 mt-10 grid grid-cols-4 justify-items-center gap-3 sm:gap-6">
           <div class="">
-            <div class="text-3xl sm:text-5xl font-serif">
+            <div class="text-3xl sm:text-5xl">
               {{ pad2(state.days) }}
             </div>
-            <div class="mt-1 text-xs text-[#322D29]">
+            <div class="mt-1 text-xs ">
               дней
             </div>
           </div>
           <div class="">
-            <div class="text-3xl sm:text-5xl font-serif">
+            <div class="text-3xl sm:text-5xl">
               {{ pad2(state.hours) }}
             </div>
-            <div class="mt-1 text-xs text-[#322D29]">
+            <div class="mt-1 text-xs ">
               часа
             </div>
           </div>
           <div class="">
-            <div class="text-3xl sm:text-5xl font-serif">
+            <div class="text-3xl sm:text-5xl">
               {{ pad2(state.minutes) }}
             </div>
-            <div class="mt-1 text-xs text-[#322D29]">
+            <div class="mt-1 text-xs ">
               минут
             </div>
           </div>
           <div class="">
-            <div class="text-3xl sm:text-5xl font-serif">
+            <div class="text-3xl sm:text-5xl">
               {{ pad2(state.seconds) }}
             </div>
-            <div class="mt-1 text-xs text-[#322D29]">
+            <div class="mt-1 text-xs ">
               секунд
             </div>
           </div>
         </div>
       </div>
       <Image
-        class="w-full h-[60svh]"
-        src="https://static.tildacdn.com/tild3464-3365-4663-a433-613666623062/Subtract1.png"
+        class="w-full max-md:absolute inset-0 object-cover lg:object-contain"
+        src="https://optim.tildacdn.com/tild3463-6234-4239-b838-316666623037/-/cover/352x483/center/center/-/format/webp/Subtract4.png.webp"
       />
     </Container>
   </section>

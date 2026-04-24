@@ -73,11 +73,11 @@ export default defineNuxtConfig({
 
   fonts: {
     families: [
-      { name: 'Norms', src: '/fonts/TT Norms Pro Trial Expanded Medium.ttf', weight: 500, global: true },
-      { name: 'Norms', src: '/fonts/TT Norms Pro Trial Expanded Normal.ttf', weight: 400, global: true },
+      { name: 'Heading', src: '/fonts/font_heading.woff', weight: 500, global: true },
+      { name: 'Text', src: '/fonts/font_text.woff2', weight: 300, global: true },
     ],
     defaults: {
-      weights: [500, 400],
+      weights: [500, 400, 300, 200, 100],
     },
   },
 

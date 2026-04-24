@@ -10,11 +10,12 @@ const palette = [
 <template>
   <section class="bg-[#F5ECDE] text-[#3D2314] py-16 sm:py-20">
     <Container
-      class="max-w-6xl mx-auto"
+      variant="wild"
+      class="mx-auto xl:!max-w-4xl"
     >
       <Heading
         variant="2"
-        class="text-center font-serif font-normal"
+        class="text-center"
       >
         Дресс-код
       </Heading>
@@ -22,7 +23,7 @@ const palette = [
         Мы будем очень благодарны, если вы поддержите цветовую палитру нашей свадьбы.
       </Text>
 
-      <div class="mt-10 flex gap-4 items-center">
+      <div class="mt-10 lg:flex gap-4 items-center grid sm:grid-cols-2">
         <div class="flex flex-3 flex-wrap items-center justify-center gap-2">
           <div
             v-for="c in palette"
@@ -32,13 +33,13 @@ const palette = [
           />
         </div>
         <div class="flex-2">
-          <Image class="bg-black h-[30svh]" />
+          <Image class="bg-black sm:h-[30svh] h-[25svh]" />
         </div>
         <div class="flex-3">
-          <Image class="bg-black h-[35svh]" />
+          <Image class="bg-black sm:h-[35svh] h-[25svh]" />
         </div>
         <div class="flex-4">
-          <Image class="bg-black h-[40svh]" />
+          <Image class="bg-black sm:h-[40svh] h-[25svh]" />
         </div>
       </div>
     </Container>

@@ -60,25 +60,25 @@ const onSubmit = async () => {
   <section class="bg-[#F5ECDE] text-[#3D2314] py-16 sm:py-20">
     <Container
       variant="wild"
-      class="max-w-3xl mx-auto"
+      class="mx-auto"
     >
       <Heading
-        variant="3"
-        class="mt-10 text-center font-serif font-normal"
+        variant="2"
+        class="mt-10 text-center"
       >
         Анкета
       </Heading>
 
-      <Heading
-        variant="4"
-        class="text-center font-serif font-normal"
+      <Text
+        variant="md"
+        class="text-center "
       >
         Подтвердите свое присутствие<br>
         до 20 июля.
-      </Heading>
+      </Text>
 
       <form
-        class="mt-8 space-y-7"
+        class="mt-8 space-y-7 font-light"
         @submit.prevent="onSubmit"
       >
         <div>
@@ -217,20 +217,20 @@ const onSubmit = async () => {
           <Button
             type="submit"
             :disabled="isSubmitting"
-            class="w-full rounded-full bg-[#777B56] text-[#FF8562] ring-1 ring-[#5A5D45] hover:bg-[#6f734f] disabled:opacity-60"
+            class="w-full rounded-full hover:scale-105 disabled:opacity-60"
           >
             {{ isSubmitting ? 'Отправляем…' : 'Отправить' }}
           </Button>
 
           <Text
             v-if="submitError"
-            class="mt-3 text-center text-sm text-red-700"
+            class="animate-in fade-in-0 text-center text-sm text-red-700 h-0"
           >
             {{ submitError }}
           </Text>
           <Text
             v-if="submitOk"
-            class="mt-3 text-center text-sm text-emerald-800"
+            class="animate-in fade-in-0 text-center text-sm text-emerald-800 h-0"
           >
             Спасибо! Анкета отправлена.
           </Text>

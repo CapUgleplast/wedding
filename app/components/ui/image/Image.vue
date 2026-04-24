@@ -34,7 +34,7 @@ const getPlaceholder = computed(() => {
   <NuxtImg
     v-if="useNuxt"
     v-slot="{ isLoaded, imgAttrs }"
-    :src="src.startsWith('/') ? baseURL + src : src"
+    :src="src"
     :placeholder="getPlaceholder"
     :alt="alt"
     format="webp"
