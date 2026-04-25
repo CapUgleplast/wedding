@@ -3,8 +3,12 @@ const isOpen = ref(false)
 const isOut = ref(false)
 const isOff = ref(false)
 
+const { isMuted } = useMuteState()
+
 watch(isOpen, (newVal) => {
   if (newVal) {
+    window.scrollTo(0, 0)
+    isMuted.value = false
     setTimeout(() => {
       isOut.value = true
     }, 500)
@@ -34,7 +38,7 @@ watch(isOpen, (newVal) => {
         }"
       >
         <img
-          class=" w-[1100px] max-w-none"
+          class="w-[200vw] sm:w-[1100px] max-w-none"
           src="https://optim.tildacdn.com/tild6139-6630-4533-a566-393534303461/-/format/webp/111.png.webp"
           alt=""
           loading="lazy"
@@ -48,7 +52,7 @@ watch(isOpen, (newVal) => {
         </Heading>
       </div>
       <img
-        class="absolute -bottom-20 left-1/2 w-[1100px] max-w-none -translate-x-1/2 transition-all duration-1500"
+        class="absolute -bottom-20 left-1/2 w-[200vw] sm:w-[1100px] max-w-none -translate-x-1/2 transition-all duration-1500"
         :class="{
           '-bottom-full': isOpen,
         }"

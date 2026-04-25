@@ -36,21 +36,18 @@ const onChange = (value: boolean, itemValue: string) => {
     >
       <Label
         :for="`${item.value}-checkbox`"
-        class="flex items-center gap-2 justify-between
-               pt-2 not-last:border-b border-b-primary/5"
+        class="flex items-center gap-2
+               pt-2"
       >
-        <Heading
-          variant="6"
-          leading="none"
-        >
-          {{ item.label }}
-        </Heading>
         <Checkbox
           :id="`${item.value}-checkbox`"
           :model-value="model.includes(item.value)"
           :value="item.value"
           @update:model-value="(ev) => onChange(ev, item.value)"
         />
+        <Text>
+          {{ item.label }}
+        </Text>
       </Label>
     </template>
   </div>

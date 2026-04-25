@@ -4,10 +4,9 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 
 const schedule = [
   { time: '17:00', title: 'Welcome' },
-  { time: '17:30', title: 'Церемония' },
-  { time: '18:00', title: 'Начало банкета' },
-  { time: '22:00', title: 'Торт' },
-  { time: '23:00', title: 'Финал' },
+  { time: '17:30', title: 'Начало банкета' },
+  { time: '21:30', title: 'Торт' },
+  { time: '22:30', title: 'Финал' },
 ] as const
 
 gsap.registerPlugin(ScrollTrigger)
@@ -115,24 +114,21 @@ onMounted(() => {
     >
       <div class="mt-10 flex flex-col gap-8">
         <div class="rounded-lg relative max-md:px-4">
-          <ul class="absolute inset-x-0 top-46 bottom-18 flex flex-col">
+          <ul class="absolute inset-x-0 top-80 bottom-54 flex flex-col z-2">
             <li
-              v-for="(item, idx) in schedule"
+              v-for="(item) in schedule"
               :key="item.time"
-              class="flex flex-1 flex-col justify-center items-center gap-4"
-              :class="{
-                'pr-50': idx % 2 == 0,
-                'pl-50': idx % 2 != 0,
-              }"
+              class="flex flex-1 flex-col justify-center items-center gap-4 relative"
             >
+              <div class="bg-secondary absolute rounded-full size-40 blur-xl" />
               <Heading
-                class="min-w-16"
+                class="min-w-16 z-2"
                 variant="3"
               >
                 {{ item.title }}
               </Heading>
               <Text
-                class="text-[#322D29]"
+                class="text-[#322D29] z-2"
                 variant="lg"
               >
                 {{ item.time }}
@@ -170,14 +166,13 @@ onMounted(() => {
               Место проведения
             </Heading>
             <Text class="text-[#322D29]">
-              Видная Усадьба,<br>
-              Старо-Нагорная ул., 20Б, Видное
+              Сбор гостей для праздничного банкета<br> <strong>Банкетный зал «Пассаж»<br> Адрес: г. Красноярск, пр. Мира, 96</strong>
             </Text>
           </div>
         </div>
         <Image
           provider="none"
-          class="mx-auto h-[50svh]"
+          class="mx-auto w-full object-cover"
           src="/mock/passage.jpg"
         />
       </div>

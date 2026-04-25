@@ -19,6 +19,33 @@ const state = reactive<FormState>({
   allergies: '',
 })
 
+const alcohol = [
+  {
+    label: 'Шампанское',
+    value: 'champagne',
+  },
+  {
+    label: 'Вино белое',
+    value: 'white_wine',
+  },
+  {
+    label: 'Вино красное',
+    value: 'red_wine',
+  },
+  {
+    label: 'Коньяк/Виски',
+    value: 'cognac/whiskey',
+  },
+  {
+    label: 'Водка',
+    value: 'vodka',
+  },
+  {
+    label: 'Безалкогольные напитки',
+    value: 'non_alcohol',
+  },
+]
+
 const isSubmitting = ref(false)
 const submitError = ref<string | null>(null)
 const submitOk = ref(false)
@@ -54,10 +81,14 @@ const onSubmit = async () => {
     isSubmitting.value = false
   }
 }
+
+watch(state, (val) => {
+  console.log(val)
+}, { deep: true })
 </script>
 
 <template>
-  <section class="bg-[#F5ECDE] text-[#3D2314] py-16 sm:py-20">
+  <section class="bg-[#F5ECDE] text-[#3D2314] py-8">
     <Container
       variant="wild"
       class="mx-auto"
@@ -73,8 +104,7 @@ const onSubmit = async () => {
         variant="md"
         class="text-center "
       >
-        Подтвердите свое присутствие<br>
-        до 20 июля.
+        Подтвердите, пожалуйста, своё присутствие до <strong>1.06.2026</strong><br> Так мы заранее позаботимся о вашей рассадке, ужине и сюрпризах,<br> которые никак нельзя пропустить!
       </Text>
 
       <form
@@ -95,24 +125,25 @@ const onSubmit = async () => {
           <Text class="text-[#322D29]">
             Получится ли у вас присутствовать?
           </Text>
-          <div class="flex flex-wrap gap-4">
+          <RadioGroup
+            v-model="state.attendance"
+            class="flex flex-wrap gap-4"
+          >
             <label class="flex items-center gap-2">
-              <input
-                v-model="state.attendance"
+              <RadioGroupItem
                 type="radio"
                 value="yes"
-              >
+              />
               <span>Да</span>
             </label>
             <label class="flex items-center gap-2">
-              <input
-                v-model="state.attendance"
+              <RadioGroupItem
                 type="radio"
                 value="no"
-              >
+              />
               <span>Нет</span>
             </label>
-          </div>
+          </RadioGroup>
         </fieldset>
 
         <fieldset class="space-y-3">
@@ -120,54 +151,10 @@ const onSubmit = async () => {
             Что предпочитаете из алкоголя?
           </Text>
           <div class="grid gap-3 sm:grid-cols-2">
-            <label class="flex items-center gap-2">
-              <input
-                type="checkbox"
-                :checked="state.alcohol.includes('champagne')"
-                @change="toggleAlcohol('champagne')"
-              >
-              <span>Шампанское</span>
-            </label>
-            <label class="flex items-center gap-2">
-              <input
-                type="checkbox"
-                :checked="state.alcohol.includes('white_wine')"
-                @change="toggleAlcohol('white_wine')"
-              >
-              <span>Вино белое</span>
-            </label>
-            <label class="flex items-center gap-2">
-              <input
-                type="checkbox"
-                :checked="state.alcohol.includes('red_wine')"
-                @change="toggleAlcohol('red_wine')"
-              >
-              <span>Вино красное</span>
-            </label>
-            <label class="flex items-center gap-2">
-              <input
-                type="checkbox"
-                :checked="state.alcohol.includes('cognac_whiskey')"
-                @change="toggleAlcohol('cognac_whiskey')"
-              >
-              <span>Коньяк/Виски</span>
-            </label>
-            <label class="flex items-center gap-2">
-              <input
-                type="checkbox"
-                :checked="state.alcohol.includes('vodka')"
-                @change="toggleAlcohol('vodka')"
-              >
-              <span>Водка</span>
-            </label>
-            <label class="flex items-center gap-2">
-              <input
-                type="checkbox"
-                :checked="state.alcohol.includes('non_alcohol')"
-                @change="toggleAlcohol('non_alcohol')"
-              >
-              <span>Безалкогольные напитки</span>
-            </label>
+            <CheckboxGroupComponent
+              v-model="state.alcohol"
+              :items="alcohol"
+            />
           </div>
         </fieldset>
 
@@ -175,32 +162,32 @@ const onSubmit = async () => {
           <Text class="text-[#322D29]">
             Ваши предпочтения по горячим блюдам?
           </Text>
-          <div class="flex flex-wrap gap-4">
+          <RadioGroup
+            v-model="state.hot"
+            class="flex flex-wrap gap-4"
+          >
             <label class="flex items-center gap-2">
-              <input
-                v-model="state.hot"
+              <RadioGroupItem
                 type="radio"
                 value="chicken"
-              >
+              />
               <span>Курица</span>
             </label>
             <label class="flex items-center gap-2">
-              <input
-                v-model="state.hot"
+              <RadioGroupItem
                 type="radio"
                 value="meat"
-              >
+              />
               <span>Мясо</span>
             </label>
             <label class="flex items-center gap-2">
-              <input
-                v-model="state.hot"
+              <RadioGroupItem
                 type="radio"
                 value="fish"
-              >
+              />
               <span>Рыба</span>
             </label>
-          </div>
+          </RadioGroup>
         </fieldset>
 
         <div>

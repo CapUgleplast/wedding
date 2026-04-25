@@ -5,20 +5,21 @@
       class="max-w-3xl mx-auto"
     >
       <Heading
-        variant="1"
+        variant="2"
         class="text-center"
+        leading="none"
       >
         Дорогие гости!
       </Heading>
 
       <Text
+        leading="none"
         class="mt-6 text-center text-[#322D29] lg:max-w-2xl mx-auto"
       >
-        Мы очень хотим сделать этот день особенным, поэтому приглашаем Вас разделить с нами торжество,
-        посвященное дню нашей свадьбы!
+        Мы очень хотим сделать этот день особенным, поэтому приглашаем Вас разделить с нами торжество, посвящённое дню нашей свадьбы!
       </Text>
 
-      <div class="relative mt-10 mx-auto max-w-md border border-[#322D29] border-r-0">
+      <div class="relative mt-20 mx-auto max-w-md border border-[#322D29] border-r-0">
         <Image
           src="https://static.tildacdn.com/tild6464-3133-4430-b364-363239613862/svg_1758653467219.svg"
           alt="Wedding"
@@ -26,41 +27,41 @@
         />
         <div class="grid grid-cols-3 text-center text-sm text-[#322D29]">
           <div class="border-r border-[#322D29] py-3">
-            ВТОРНИК
+            ЧЕТВЕРГ
           </div>
           <div class="border-r border-[#322D29] py-3">
-            СРЕДА
+            ПЯТНИЦА
           </div>
           <div class="py-3">
-            ЧЕТВЕРГ
+            СУББОТА
           </div>
         </div>
         <div class="border-t border-[#322D29]" />
         <div class="grid grid-cols-3 text-center">
           <div class="border-r border-[#322D29] py-5">
             <Text class="!text-6xl">
-              11
+              16
             </Text>
             <Text variant="sm">
-              августа
+              июля
             </Text>
           </div>
           <div class="border-r border-[#322D29] py-5">
             <Text class="!text-6xl">
-              12
+              17
             </Text>
             <Text
               variant="sm"
             >
-              августа
+              июля
             </Text>
           </div>
           <div class="py-5">
             <Text class="!text-6xl">
-              13
+              18
             </Text>
             <Text variant="sm">
-              августа
+              июля
             </Text>
           </div>
         </div>

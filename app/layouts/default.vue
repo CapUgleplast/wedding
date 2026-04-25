@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { VueLenis } from 'lenis/vue'
-import { VueQueryDevtools } from '@tanstack/vue-query-devtools'
 </script>
 
 <template>
@@ -8,13 +7,9 @@ import { VueQueryDevtools } from '@tanstack/vue-query-devtools'
     root
     :options="{ lerp: 0.1, duration: 1.5, smoothWheel: true }"
   >
-    <Header />
     <main class="min-h-lvh">
       <NuxtPage />
     </main>
-    <Footer />
-    <Cookies />
-    <SharedModalDocument />
-    <VueQueryDevtools />
+    <SharedElementSound audio="/nobody.mp3" />
   </VueLenis>
 </template>

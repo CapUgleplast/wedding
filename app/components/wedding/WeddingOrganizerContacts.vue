@@ -10,7 +10,7 @@ const phone = '+70000000000'
       class="text-center mx-auto flex flex-col gap-4 items-center"
     >
       <Heading
-        variant="3"
+        variant="2"
       >
         Контакты
       </Heading>
@@ -25,6 +25,7 @@ const phone = '+70000000000'
         class="w-fit rounded-md hover:scale-110"
       >
         Позвонить
+        <Icon name="icons:phone" />
       </Button>
     </Container>
   </section>
