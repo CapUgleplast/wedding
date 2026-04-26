@@ -3,46 +3,48 @@ import { z } from 'zod'
 
 const schema = z.object({
   fullName: z.string().min(1),
-  attendance: z.enum(['yes', 'no']),
-  alcohol: z.array(z.enum(['champagne', 'white_wine', 'red_wine', 'cognac_whiskey', 'vodka', 'non_alcohol'])).min(1),
-  hot: z.enum(['chicken', 'meat', 'fish']),
+  attendance: z.enum(['да', 'нет']),
+  alcohol: z.array(z.enum(['Шампанское', 'Вино белое', 'Вино красное', 'Коньяк/Виски', 'Водка', 'Безалкогольные напитки'])).min(1),
+  hot: z.enum(['Курица', 'Мясо', 'Рыба']),
   allergies: z.string().min(1),
 })
 
 type FormState = z.infer<typeof schema>
 
-const state = reactive<FormState>({
+const state = ref<FormState>({
   fullName: '',
-  attendance: 'yes',
+  attendance: 'да',
   alcohol: [],
-  hot: 'chicken',
+  hot: 'Курица',
   allergies: '',
 })
+
+const defaultState = JSON.parse(JSON.stringify(state.value))
 
 const alcohol = [
   {
     label: 'Шампанское',
-    value: 'champagne',
+    value: 'Шампанское',
   },
   {
     label: 'Вино белое',
-    value: 'white_wine',
+    value: 'Вино белое',
   },
   {
     label: 'Вино красное',
-    value: 'red_wine',
+    value: 'Вино красное',
   },
   {
     label: 'Коньяк/Виски',
-    value: 'cognac/whiskey',
+    value: 'Коньяк/Виски',
   },
   {
     label: 'Водка',
-    value: 'vodka',
+    value: 'Водка',
   },
   {
     label: 'Безалкогольные напитки',
-    value: 'non_alcohol',
+    value: 'Безалкогольные напитки',
   },
 ]
 
@@ -50,17 +52,13 @@ const isSubmitting = ref(false)
 const submitError = ref<string | null>(null)
 const submitOk = ref(false)
 
-const toggleAlcohol = (value: FormState['alcohol'][number]) => {
-  const idx = state.alcohol.indexOf(value)
-  if (idx >= 0) state.alcohol.splice(idx, 1)
-  else state.alcohol.push(value)
-}
-
 const onSubmit = async () => {
   submitOk.value = false
   submitError.value = null
 
-  const parsed = schema.safeParse(state)
+  const parsed = schema.safeParse(state.value)
+  console.log(parsed)
+
   if (!parsed.success) {
     submitError.value = 'Пожалуйста, заполните все поля анкеты.'
     return
@@ -68,10 +66,11 @@ const onSubmit = async () => {
 
   isSubmitting.value = true
   try {
-    await $fetch('/api/wedding/rsvp', {
+    await useFetch('/api/wedding/rsvp', {
       method: 'POST',
       body: parsed.data,
     })
+    state.value = defaultState
     submitOk.value = true
   }
   catch {
@@ -81,10 +80,6 @@ const onSubmit = async () => {
     isSubmitting.value = false
   }
 }
-
-watch(state, (val) => {
-  console.log(val)
-}, { deep: true })
 </script>
 
 <template>
@@ -107,9 +102,8 @@ watch(state, (val) => {
         Подтвердите, пожалуйста, своё присутствие до <strong>1.06.2026</strong><br> Так мы заранее позаботимся о вашей рассадке, ужине и сюрпризах,<br> которые никак нельзя пропустить!
       </Text>
 
-      <form
+      <div
         class="mt-8 space-y-7 font-light"
-        @submit.prevent="onSubmit"
       >
         <div>
           <Text class="mb-2 text-[#322D29]">
@@ -121,7 +115,10 @@ watch(state, (val) => {
           />
         </div>
 
-        <fieldset class="space-y-3">
+        <fieldset
+          class="space-y-3"
+          @submit.stop
+        >
           <Text class="text-[#322D29]">
             Получится ли у вас присутствовать?
           </Text>
@@ -132,14 +129,14 @@ watch(state, (val) => {
             <label class="flex items-center gap-2">
               <RadioGroupItem
                 type="radio"
-                value="yes"
+                value="да"
               />
               <span>Да</span>
             </label>
             <label class="flex items-center gap-2">
               <RadioGroupItem
                 type="radio"
-                value="no"
+                value="нет"
               />
               <span>Нет</span>
             </label>
@@ -158,7 +155,10 @@ watch(state, (val) => {
           </div>
         </fieldset>
 
-        <fieldset class="space-y-3">
+        <fieldset
+          class="space-y-3"
+          @submit.stop
+        >
           <Text class="text-[#322D29]">
             Ваши предпочтения по горячим блюдам?
           </Text>
@@ -169,21 +169,21 @@ watch(state, (val) => {
             <label class="flex items-center gap-2">
               <RadioGroupItem
                 type="radio"
-                value="chicken"
+                value="Курица"
               />
               <span>Курица</span>
             </label>
             <label class="flex items-center gap-2">
               <RadioGroupItem
                 type="radio"
-                value="meat"
+                value="Мясо"
               />
               <span>Мясо</span>
             </label>
             <label class="flex items-center gap-2">
               <RadioGroupItem
                 type="radio"
-                value="fish"
+                value="Рыба"
               />
               <span>Рыба</span>
             </label>
@@ -202,9 +202,9 @@ watch(state, (val) => {
 
         <div class="pt-2">
           <Button
-            type="submit"
             :disabled="isSubmitting"
             class="w-full rounded-full hover:scale-105 disabled:opacity-60"
+            @click="onSubmit"
           >
             {{ isSubmitting ? 'Отправляем…' : 'Отправить' }}
           </Button>
@@ -222,7 +222,7 @@ watch(state, (val) => {
             Спасибо! Анкета отправлена.
           </Text>
         </div>
-      </form>
+      </div>
     </Container>
   </section>
 </template>

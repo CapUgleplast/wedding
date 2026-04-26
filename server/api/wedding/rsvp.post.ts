@@ -2,9 +2,9 @@ import { z } from 'zod'
 
 const payloadSchema = z.object({
   fullName: z.string().min(1),
-  attendance: z.enum(['yes', 'no']),
-  alcohol: z.array(z.enum(['champagne', 'white_wine', 'red_wine', 'cognac_whiskey', 'vodka', 'non_alcohol'])).min(1),
-  hot: z.enum(['chicken', 'meat', 'fish']),
+  attendance: z.enum(['да', 'нет']),
+  alcohol: z.array(z.enum(['Шампанское', 'Вино белое', 'Вино красное', 'Коньяк/Виски', 'Водка', 'Безалкогольные напитки'])).min(1),
+  hot: z.enum(['Курица', 'Мясо', 'Рыба']),
   allergies: z.string().min(1),
 })
 
@@ -19,8 +19,13 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  // TODO: wire to real destination (email/CRM/Strapi) when ready.
-  // SSR-safe: processing happens server-side, client only hits this endpoint.
-  return { ok: true }
-})
+  const res = await $fetch('https://script.google.com/macros/s/AKfycbyJhGrrXUAYslzVNhvETHKD7488MGZ6h3VVqVNSoCnMfFbJYTLKab1HyTimqcOUDP5u/exec', {
+    method: 'POST',
+    body: JSON.stringify(body),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
 
+  return res
+})

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const organizerName = 'Юлия'
-const phone = '+70000000000'
+const organizerName = 'Мария'
+const phone = '+79029185709'
 </script>
 
 <template>
