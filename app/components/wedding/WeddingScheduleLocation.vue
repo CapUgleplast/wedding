@@ -140,7 +140,7 @@ onMounted(async () => {
 
           <div
             ref="sectionRef"
-            class="relative xs:h-[1800px]"
+            class="relative h-[1600px] xs:h-[1800px]"
           >
             <div
               ref="heartRef"
