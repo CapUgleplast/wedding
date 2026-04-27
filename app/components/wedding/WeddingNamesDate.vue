@@ -10,7 +10,7 @@ import Image from '../ui/image/Image.vue'
     >
       <Image
         provider="none"
-        src="/mock/main.jpg"
+        src="/mock/main.webp"
         alt="Александр и Дарья"
         class="w-full object-cover min-h-svh md:min-h-[60svh] mx-auto relative
                after:absolute after:inset-x-0 after:bottom-0 after:opacity-70 after:h-1/2 after:bg-linear-to-t after:from-black after:to-transparent"

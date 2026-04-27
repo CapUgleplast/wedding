@@ -67,9 +67,11 @@ const getHeartPoint = (frames: HeartKeyframe[], progress01: number) => {
   }
 }
 
-onMounted(() => {
+onMounted(async () => {
   if (!import.meta.client) return
-  if (!sectionRef.value || !heartRef.value) return
+
+  await nextTick()
+
   const isMobile = useMediaQuery('(max-width: 485px)')
   console.log(isMobile.value)
 
@@ -90,7 +92,7 @@ onMounted(() => {
         const sectionHeight = sectionRef.value!.offsetHeight
         const travelY = Math.max(0, sectionHeight - 40) // 96 ~= heart size + breathing room
         const yScaled = (y / maxY) * travelY
-        const xScaled = (x / maxAbsX) * (isMobile.value ? 170 : 190) // keep lateral movement subtle in our layout
+        const xScaled = (x / maxAbsX) * (isMobile.value ? 180 : 190) // keep lateral movement subtle in our layout
 
         gsap.set(heartRef.value!, { x: xScaled, y: yScaled })
       },
@@ -173,7 +175,7 @@ onMounted(() => {
         <Image
           provider="none"
           class="mx-auto w-full object-cover"
-          src="/mock/passage.jpg"
+          src="/mock/passage.webp"
         />
       </div>
     </Container>

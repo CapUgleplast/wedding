@@ -6,7 +6,7 @@ export { default as Text } from './Text.vue'
 export const textVariants = cva('-tracking-[calc(1em*0.06)]', {
   variants: {
     variant: {
-      lg: '3xl:text-5xl lg:text-4xl text-xl',
+      lg: '3xl:text-5xl lg:text-4xl text-2xl',
       md: '3xl:text-[1.375rem] lg:text-lg text-base',
       base: '3xl:text-xl sm:text-base text-sm',
       sm: '3xl:text-base text-sm',

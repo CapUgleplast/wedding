@@ -45,7 +45,8 @@ watch(isOpen, (newVal) => {
         >
         <Heading
           variant="1"
-          class="absolute top-[12svh] left-1/2 -translate-x-1/2 text-center tracking-wide"
+          leading="none"
+          class="absolute top-[16svh] sm:top-[12svh] left-1/2 -translate-x-1/2 text-center tracking-wide"
         >
           Приглашение<br>
           на свадьбу

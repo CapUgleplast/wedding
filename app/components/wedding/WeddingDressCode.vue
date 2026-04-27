@@ -47,19 +47,19 @@ const palette = [
         <div class="flex-2">
           <Image
             class=" sm:h-[30svh] h-[25svh] object-contain"
-            src="/mock/dress1.png"
+            src="/mock/dress1.webp"
           />
         </div>
         <div class="flex-3">
           <Image
             class=" sm:h-[35svh] h-[25svh] object-contain"
-            src="/mock/dress2.jpg"
+            src="/mock/dress2.webp"
           />
         </div>
         <div class="flex-4 max-sm:col-span-2">
           <Image
             class=" sm:h-[40svh] h-[25svh] object-contain"
-            src="/mock/dress3.png"
+            src="/mock/dress3.webp"
           />
         </div>
       </div>
