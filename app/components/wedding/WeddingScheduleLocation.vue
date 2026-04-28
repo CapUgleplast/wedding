@@ -16,8 +16,6 @@ const heartRef = ref<HTMLElement | null>(null)
 
 type HeartKeyframe = { x: number, y: number }
 
-// Derived from click2invite.ru block div#rec1862692141 (tilda "scroll" sbs opts),
-// then scaled to our section scroll distance.
 const heartKeyframesDesktop: HeartKeyframe[] = [
   { x: 0, y: 0 },
   { x: 5, y: 85 },
@@ -147,14 +145,14 @@ onMounted(async () => {
               class="pointer-events-none absolute left-1/2 top-0 z-10 -translate-x-1/2 will-change-transform transform-gpu"
             >
               <img
-                src="https://static.tildacdn.com/tild6430-3230-4663-b063-626435613063/1990638-777b56.svg"
+                src="/svg/heart.svg"
                 alt=""
                 class="h-16 w-16 sm:h-20 sm:w-20"
                 aria-hidden="true"
               >
             </div>
             <Image
-              src="https://static.tildacdn.com/tild3631-6338-4061-b436-333636386235/svg_1758649796645.svg"
+              src="/svg/path.svg"
               class="size-full pt-4 pr-1.5 sm:pt-8 xs:pr-3"
             />
           </div>

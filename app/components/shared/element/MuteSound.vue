@@ -20,7 +20,7 @@ const { isMuted } = useMuteState()
     />
     <Image
       class="absolute inset-0 scale-150 animate-spin animation-duration-10000"
-      src="https://static.tildacdn.com/tild3464-6438-4137-b736-626434633366/Linked_Path_Group.svg"
+      src="/svg/mute.svg"
     />
   </Button>
 </template>

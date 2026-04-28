@@ -69,7 +69,7 @@ const details = [
 
     <Image
       class="size-full brightness-90 object-cover lg:object-contain"
-      src="https://static.tildacdn.com/tild3464-3365-4663-a433-613666623062/Subtract1.png"
+      src="/mock/Subtract1.png"
     />
   </Container>
 </template>

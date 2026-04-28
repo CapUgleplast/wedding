@@ -39,7 +39,7 @@ watch(isOpen, (newVal) => {
       >
         <img
           class="w-[200vw] sm:w-[1100px] max-w-none"
-          src="https://optim.tildacdn.com/tild6139-6630-4533-a566-393534303461/-/format/webp/111.png.webp"
+          src="/mock/111.png.webp"
           alt=""
           loading="lazy"
         >
@@ -57,7 +57,7 @@ watch(isOpen, (newVal) => {
         :class="{
           '-bottom-full': isOpen,
         }"
-        src="https://optim.tildacdn.com/tild3831-3736-4162-a635-396230643036/-/format/webp/112.png.webp"
+        src="/mock/112.png.webp"
         alt=""
         loading="lazy"
       >
@@ -74,7 +74,7 @@ watch(isOpen, (newVal) => {
       >
         <Image
           class="size-full object-cover"
-          src="https://optim.tildacdn.com/tild3939-3163-4732-a135-303062326565/-/resize/351x/-/format/webp/hf_20260130_121201_e.png.webp"
+          src="/mock/hf_20260130_121201_e.png.webp"
         />
       </button>
     </Container>

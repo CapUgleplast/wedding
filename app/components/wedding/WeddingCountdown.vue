@@ -63,7 +63,7 @@ const pad2 = (n: number) => String(n).padStart(2, '0')
       </div>
       <Image
         class="w-full max-md:absolute inset-0 object-cover lg:object-contain"
-        src="https://optim.tildacdn.com/tild3463-6234-4239-b838-316666623037/-/cover/352x483/center/center/-/format/webp/Subtract4.png.webp"
+        src="/mock/Subtract4.png.webp"
       />
     </Container>
   </section>

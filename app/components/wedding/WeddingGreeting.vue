@@ -21,7 +21,7 @@
 
       <div class="relative mt-20 mx-auto max-w-md border border-[#322D29] border-r-0">
         <Image
-          src="https://static.tildacdn.com/tild6464-3133-4430-b364-363239613862/svg_1758653467219.svg"
+          src="/svg/circle.svg"
           alt="Wedding"
           class="h-full aspect-square absolute left-1/2 -translate-x-1/2 scale-125"
         />
