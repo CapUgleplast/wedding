@@ -5,7 +5,7 @@ const schema = z.object({
   fullName: z.string().min(1),
   attendance: z.enum(['да', 'нет']),
   alcohol: z.array(z.enum(['Шампанское', 'Вино белое', 'Вино красное', 'Коньяк/Виски', 'Водка', 'Безалкогольные напитки'])).min(1),
-  phone: z.string().length(11),
+  phone: z.number().or(z.string()),
 })
 
 type FormState = z.infer<typeof schema>
