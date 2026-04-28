@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const res = await $fetch('https://script.google.com/macros/s/AKfycbyJhGrrXUAYslzVNhvETHKD7488MGZ6h3VVqVNSoCnMfFbJYTLKab1HyTimqcOUDP5u/exec', {
+  const res = await $fetch('https://script.google.com/macros/s/AKfycbwK1czdGr_G0m-mUgGqyuVbp-Oe6GHOHsPxjIIdsv5JPFqckT00BFNaFIZseOk7qT6x/exec', {
     method: 'POST',
     body: JSON.stringify(body),
     headers: {
