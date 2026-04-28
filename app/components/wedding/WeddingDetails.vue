@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const details = [
   {
-    icon: 'bouquet',
+    icon: 'gift',
     label: 'Цветы',
     data: 'Приятным комплиментом для нас будет, если вместо цветов вы решите подарить нам сертификаты в Hoff / DNS / Море Эмоций',
   },
@@ -41,7 +41,7 @@ const details = [
             >
               <IconElement
                 :name="item.icon"
-                class="!size-10 xl:!size-16"
+                class="!size-10 xl:!size-14"
               />
             </PopoverTrigger>
             <PopoverContent
