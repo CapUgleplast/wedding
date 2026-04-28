@@ -2,9 +2,9 @@
 const getNextWeddingDate = () => {
   const now = new Date()
   const year = now.getFullYear()
-  const candidate = new Date(year, 7, 12, 17, 0, 0) // Aug (0-based) + time placeholder
+  const candidate = new Date(year, 6, 17, 17, 0, 0) // Aug (0-based) + time placeholder
   if (candidate.getTime() > now.getTime()) return candidate
-  return new Date(year + 1, 7, 12, 17, 0, 0)
+  return new Date(year + 1, 6, 17, 17, 0, 0)
 }
 
 const target = getNextWeddingDate()

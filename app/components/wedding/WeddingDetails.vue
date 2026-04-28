@@ -1,13 +1,13 @@
 <script setup lang="ts">
 const details = [
   {
-    icon: 'gift',
-    label: 'Подарки',
-    data: 'Приятным комплиментом для нас будет, если вместо цветов вы решите подарить нам сертификат в спортмастер/ в Триатлон/ в Планету/ в ЗЯ',
+    icon: 'bouquet',
+    label: 'Цветы',
+    data: 'Приятным комплиментом для нас будет, если вместо цветов вы решите подарить нам сертификаты в Hoff / DNS / Море Эмоций',
   },
   {
     icon: 'kindergarten',
-    label: 'Дети',
+    label: 'Маленькие гости',
     data: 'К нашему большому сожалению, на территории, где будет проходить торжество, нет детских зон. Просим позаботиться заранее о том, с кем вы оставите своих детей на время свадьбы',
   },
 ]
@@ -36,7 +36,7 @@ const details = [
             <PopoverTrigger
               variant="primary"
               :hide-icon="true"
-              class="text-4xl !size-16 xl:!size-20 p-0 transition-all hover:scale-105"
+              class="text-4xl min-w-16 xl:min-w-20 !size-16 xl:!size-20 p-2 transition-all hover:scale-105"
               as="button"
             >
               <IconElement
@@ -56,7 +56,11 @@ const details = [
           <Heading variant="2">
             -
           </Heading>
-          <Heading variant="2">
+          <Heading
+            variant="2"
+            leading="none"
+            class="xl:!text-5xl max-md:w-min text-end"
+          >
             {{ item.label }}
           </Heading>
         </div>

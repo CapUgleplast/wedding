@@ -5,8 +5,7 @@ const schema = z.object({
   fullName: z.string().min(1),
   attendance: z.enum(['да', 'нет']),
   alcohol: z.array(z.enum(['Шампанское', 'Вино белое', 'Вино красное', 'Коньяк/Виски', 'Водка', 'Безалкогольные напитки'])).min(1),
-  hot: z.enum(['Курица', 'Мясо', 'Рыба']),
-  allergies: z.string().min(1),
+  phone: z.string().min(70000000000).max(89999999999).length(11),
 })
 
 type FormState = z.infer<typeof schema>
@@ -15,8 +14,7 @@ const state = ref<FormState>({
   fullName: '',
   attendance: 'да',
   alcohol: [],
-  hot: 'Курица',
-  allergies: '',
+  phone: '',
 })
 
 const defaultState = JSON.parse(JSON.stringify(state.value))
@@ -52,12 +50,26 @@ const isSubmitting = ref(false)
 const submitError = ref<string | null>(null)
 const submitOk = ref(false)
 
+const checkPhone = () => {
+  const str = state.value.phone.toString()
+  const num = +state.value.phone
+  if (!str.length) {
+    return
+  }
+  if (str.length <= 11 && (num % 1 != 0 || (str[0] != '7' && str[0] != '8'))) {
+    state.value.phone = '8'
+    return
+  }
+  if (str.length > 11) {
+    state.value.phone = str.slice(0, 11)
+  }
+}
+
 const onSubmit = async () => {
   submitOk.value = false
   submitError.value = null
 
   const parsed = schema.safeParse(state.value)
-  console.log(parsed)
 
   if (!parsed.success) {
     submitError.value = 'Пожалуйста, заполните все поля анкеты.'
@@ -99,7 +111,7 @@ const onSubmit = async () => {
         variant="md"
         class="text-center "
       >
-        Подтвердите, пожалуйста, своё присутствие до <strong>1.06.2026</strong><br> Так мы заранее позаботимся о вашей рассадке, ужине и сюрпризах,<br> которые никак нельзя пропустить!
+        Подтвердите, пожалуйста, своё присутствие<br>до <strong>1.06.2026</strong><br> Так мы заранее позаботимся о вашей рассадке, ужине и сюрпризах,<br class="max-sm:hidden"> которые никак нельзя пропустить!
       </Text>
 
       <div
@@ -155,48 +167,21 @@ const onSubmit = async () => {
           </div>
         </fieldset>
 
-        <fieldset
-          class="space-y-3"
-          @submit.stop
-        >
-          <Text class="text-[#322D29]">
-            Ваши предпочтения по горячим блюдам?
-          </Text>
-          <RadioGroup
-            v-model="state.hot"
-            class="flex flex-wrap gap-4"
-          >
-            <label class="flex items-center gap-2">
-              <RadioGroupItem
-                type="radio"
-                value="Курица"
-              />
-              <span>Курица</span>
-            </label>
-            <label class="flex items-center gap-2">
-              <RadioGroupItem
-                type="radio"
-                value="Мясо"
-              />
-              <span>Мясо</span>
-            </label>
-            <label class="flex items-center gap-2">
-              <RadioGroupItem
-                type="radio"
-                value="Рыба"
-              />
-              <span>Рыба</span>
-            </label>
-          </RadioGroup>
-        </fieldset>
-
         <div>
           <Text class="mb-2 text-[#322D29]">
-            Есть ли у вас пищевые аллергии?
+            Ваш номер телефона
           </Text>
           <Input
-            v-model="state.allergies"
+            v-model.number="state.phone"
+            type="number"
+            name="phone"
+            minlength="11"
+            maxlength="11"
+            placeholder="81234567890"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            step="1"
             class="w-full bg-white/60"
+            @input="checkPhone"
           />
         </div>
 

@@ -32,10 +32,10 @@ const palette = [
         Мы очень ждем и с удовольствием готовимся к этому незабываемому дню!<br> Поддержите нас вашими улыбками и объятиями,<br> а также красивыми нарядами в палитре торжества
       </Text>
 
-      <div class="mt-10 lg:flex gap-4 items-center grid grid-cols-2 justify-items-center">
+      <div class="mt-10 gap-4 items-center grid grid-cols-1 justify-items-center">
         <div
-          class="sm:flex flex-3 flex-wrap items-center justify-center justify-items-center gap-2
-                    grid grid-cols-6 max-sm:col-span-2 w-fit mx-auto"
+          class="flex-wrap items-center justify-center justify-items-center gap-2
+                    grid grid-cols-6 col-span-1 w-fit mx-auto"
         >
           <div
             v-for="c in palette"
@@ -44,22 +44,32 @@ const palette = [
             :style="{ backgroundColor: c.hex }"
           />
         </div>
-        <div class="flex-2">
+        <div class="flex col-span-1 mt-5">
           <Image
-            class=" sm:h-[30svh] h-[25svh] object-contain"
+            class="max-sm:h-[43vw] h-[25svh] object-cover relative rounded-lg left-2"
             src="/mock/dress1.webp"
           />
-        </div>
-        <div class="flex-3">
           <Image
-            class=" sm:h-[35svh] h-[25svh] object-contain"
+            class="max-sm:h-[43vw] h-[25svh] object-cover relative rounded-lg top-5"
             src="/mock/dress2.webp"
           />
-        </div>
-        <div class="flex-4 max-sm:col-span-2">
           <Image
-            class=" sm:h-[40svh] h-[25svh] object-contain"
+            class="max-sm:h-[43vw] h-[25svh] object-cover relative rounded-lg right-2"
             src="/mock/dress3.webp"
+          />
+        </div>
+        <div class="flex  col-span-1">
+          <Image
+            class="max-sm:h-[43vw] h-[25svh] object-cover relative rounded-lg top-8 left-2"
+            src="/mock/dress4.webp"
+          />
+          <Image
+            class="max-sm:h-[43vw] h-[25svh] object-cover relative rounded-lg top-5"
+            src="/mock/dress5.webp"
+          />
+          <Image
+            class="max-sm:h-[43vw] h-[25svh] object-cover relative rounded-lg top-3 right-2"
+            src="/mock/dress6.webp"
           />
         </div>
       </div>
