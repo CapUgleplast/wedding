@@ -5,7 +5,7 @@ const schema = z.object({
   fullName: z.string().min(1),
   attendance: z.enum(['да', 'нет']),
   alcohol: z.array(z.enum(['Шампанское', 'Вино белое', 'Вино красное', 'Коньяк/Виски', 'Водка', 'Безалкогольные напитки'])).min(1),
-  phone: z.string().min(70000000000).max(89999999999).length(11),
+  phone: z.string().length(11),
 })
 
 type FormState = z.infer<typeof schema>
@@ -72,6 +72,8 @@ const onSubmit = async () => {
   const parsed = schema.safeParse(state.value)
 
   if (!parsed.success) {
+    console.log(parsed)
+
     submitError.value = 'Пожалуйста, заполните все поля анкеты.'
     return
   }
