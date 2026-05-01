@@ -4,7 +4,7 @@ const payloadSchema = z.object({
   fullName: z.string().min(1),
   attendance: z.enum(['да', 'нет']),
   alcohol: z.array(z.enum(['Шампанское', 'Вино белое', 'Вино красное', 'Коньяк/Виски', 'Водка', 'Безалкогольные напитки'])).min(1),
-  phone: z.number().or(z.string()),
+  phone: z.union([z.string(), z.number()]),
 })
 
 export default defineEventHandler(async (event) => {
