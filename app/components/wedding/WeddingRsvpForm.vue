@@ -48,6 +48,7 @@ const alcohol = [
 
 const isSubmitting = ref(false)
 const submitError = ref<string | null>(null)
+
 const submitOk = ref(false)
 
 const checkPhone = () => {
